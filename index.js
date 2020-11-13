@@ -1,5 +1,5 @@
 // CONTENIDO DE LA PRÁCTICA:
-// Vamos a añadir elementos en una lista (con la clase "color-list") con javascript a partir del array aportado en este documento, en la constante "colorList" (ver imagen en el proyecto "ejemplo_lista.png"). 
+// Vamos a añadir elementos en una lista (con la clase "color-list") con javascript a partir del array aportado en este documento, en la constante "colorList" (ver imagen en el proyecto "ejemplo_lista.png").
 
 // Como se puede apreciar en la imagen, cada elemento que esté en una posición par de de la lista tiene que tener la clase "color-item--odd". Esta clase debe añadirse desde javascript, NO haciendo uso del selector css nth-of-type(odd) o similares. NOTA: En este caso vamos a considerar un elemento par pensando en el primer elemento como el 1 no como el 0.
 
@@ -28,70 +28,70 @@
 
 const colorList = [
   {
-    colorName: 'white',
-    hex: '#ffffff'
+    colorName: "white",
+    hex: "#ffffff"
   },
   {
-    colorName: 'red',
-    hex: '#ff0000'
+    colorName: "red",
+    hex: "#ff0000"
   },
   {
-    colorName: 'orange',
-    hex: '#ffa500'
+    colorName: "orange",
+    hex: "#ffa500"
   },
   {
-    colorName: 'yellow',
-    hex: '#ffff00'
+    colorName: "yellow",
+    hex: "#ffff00"
   },
   {
-    colorName: 'orchid',
-    hex: '#da70d6'
+    colorName: "orchid",
+    hex: "#da70d6"
   },
   {
-    colorName: 'pink',
-    hex: '#ffc0cb'
+    colorName: "pink",
+    hex: "#ffc0cb"
   },
   {
-    colorName: 'green',
-    hex: '#008000'
+    colorName: "green",
+    hex: "#008000"
   },
   {
-    colorName: 'silver',
-    hex: '#c0c0c0'
+    colorName: "silver",
+    hex: "#c0c0c0"
   }
 ];
-let list = document.querySelector('.color-list');
+let list = document.querySelector(".color-list");
 
 colorList.forEach((colorElement, i) => {
-  const item = document.createElement('li');
-  const name = document.createElement('div');
-  const show = document.createElement('div');
-  const next = document.createElement('button');
-  const body = document.createElement('button');
+  const item = document.createElement("li");
+  const name = document.createElement("div");
+  const show = document.createElement("div");
+  const next = document.createElement("button");
+  const body = document.createElement("button");
 
-  item.classList.add('color-item');
-  name.classList.add('color-name');
-  show.classList.add('color-show');
-  next.classList.add('color-set');
-  body.classList.add('color-set');
+  item.classList.add("color-item");
+  name.classList.add("color-name");
+  show.classList.add("color-show");
+  next.classList.add("color-set");
+  body.classList.add("color-set");
 
   if (i % 2 !== 0) {
-    item.classList.add('color-item--odd');
+    item.classList.add("color-item--odd");
   }
 
-  name.textContent = 'Color: ' + colorElement.colorName;
-  show.textContent = 'Muestra';
-  next.textContent = 'Next item color';
-  body.textContent = 'Page color';
+  name.textContent = "Color: " + colorElement.colorName;
+  show.textContent = "Muestra";
+  next.textContent = "Next item color";
+  body.textContent = "Page color";
 
   show.style.backgroundColor = colorElement.hex;
 
-  item.addEventListener('click', e => {
+  item.addEventListener("click", e => {
     e.stopPropagation();
     alert(colorElement.colorName);
   });
 
-  next.addEventListener('click', e => {
+  next.addEventListener("click", e => {
     e.stopPropagation();
     if (colorList.length - 1 !== i) {
       next.parentNode.nextSibling.style.backgroundColor = colorElement.hex;
@@ -100,7 +100,7 @@ colorList.forEach((colorElement, i) => {
         colorElement.hex;
     }
   });
-  body.addEventListener('click', e => {
+  body.addEventListener("click", e => {
     e.stopPropagation();
     document.body.style.backgroundColor = colorElement.hex;
   });
@@ -109,10 +109,9 @@ colorList.forEach((colorElement, i) => {
   item.appendChild(show);
   item.appendChild(next);
   item.appendChild(body);
-
   list.appendChild(item);
 });
 
-document.body.addEventListener('click', () => {
-  alert('body');
+document.body.addEventListener("click", () => {
+  alert("body");
 });
